@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SearchFilter from "./components/SearchFilter";
+import ArticleList from "./components/ArticleList";
+import Header from "./components/Header";
+import { useSelector } from "react-redux";
 
-function App() {
+const App = () => {
+  const filter = useSelector((state) => state.global.filter);
+  const preferance = useSelector((state) => state.global.preferance);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {(filter || preferance) && <SearchFilter />}
+      <ArticleList />
     </div>
   );
-}
+};
 
 export default App;
