@@ -22,4 +22,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### Docker seteps for running application
 
 `docker build -t react-app:dev . `
+
 `docker run -p 3000:3000 react-app:dev`
